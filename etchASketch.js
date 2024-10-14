@@ -1,13 +1,12 @@
 
 let gridContainer = document.querySelector ("#gridContainer");
 
-
 let gridDimensions = 16
 //960px is the height/w of gridContainer in CSS, minus 1 for square margin
 boxDimensions = 960 / gridDimensions - 1
 let dimensionsButton = document.querySelector("#dimensionsButton")
 
-addSquares(0, gridDimensions)
+addSquares(0, gridDimensions);
 
 dimensionsButton.addEventListener("click", () => {
     let dimension = prompt("Type dimension width(<100)", 16);
@@ -21,8 +20,10 @@ dimensionsButton.addEventListener("click", () => {
         addSquares(0, gridDimensions)
         }
     })
-    
-    
+
+
+
+
 
 function removeSquares() {
         gridContainer.innerHTML=""
@@ -30,7 +31,7 @@ function removeSquares() {
 
 function addSquares(i, gridDimensions) {
     for (i = 0; i < (gridDimensions * gridDimensions); i++ ) {
-        let square = document.createElement("div");
+        let square = document.createElement("span");
         square.style.maxWidth = `${boxDimensions}px`;
         square.style.maxHeight = `${boxDimensions}px`;
         square.style.minHeight = `${boxDimensions}px`;
@@ -41,6 +42,13 @@ function addSquares(i, gridDimensions) {
     }
 }
 
+let clearButton = document.querySelector("#clearButton");
+clearButton.addEventListener("click", () => {
+    let squareList = document.querySelectorAll("span");
+    for (i = 0; i <squareList.length; i++) {
+        squareList[i].style.backgroundColor = "cornflowerblue";
+    }
+}) 
 gridContainer.addEventListener("mouseover", function (e) {
     e.stopImmediatePropagation()
     e.target.style.backgroundColor = "black"
