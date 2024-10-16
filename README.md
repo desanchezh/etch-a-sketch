@@ -1,2 +1,2 @@
 # etch-a-sketch
-TOP etch-a-sketch in vanilla Javascript
+Etch-a-sketch in vanilla javascript for The Odin Project.
